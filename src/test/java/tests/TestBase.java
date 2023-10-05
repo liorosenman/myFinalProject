@@ -18,34 +18,25 @@ import pageobjects.LoginPage;
 import pageobjects.OrderCompletePage;
 import utils.Utils;
 
-
-
 public class TestBase {
-	
-	
-	WebDriver driver;	
+
+	WebDriver driver;
 	LoginPage loginp;
-		
+
 	@BeforeClass
-	public void Setup()
-	{
-	
+	public void Setup() {
+
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 //		driver.get("https://www.saucedemo.com/");
 		driver.get(Utils.readProperty("url"));
 		LoginPage loginp = new LoginPage(driver);
-		
+
 	}
-	
+
 	@AfterClass
-	public void tearDown()
-	{
-		//driver.quit();
+	public void tearDown() {
+		// driver.quit();
 	}
-	
-	
+
 }
-	
-
-

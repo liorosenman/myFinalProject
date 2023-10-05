@@ -73,17 +73,6 @@ public class CartPage extends MenuPage {
 		return productsPrice;
 	}
 
-	/*
-	 * private HashMap<String, String> itemsPgItems; // private HashMap<String,
-	 * String> cartPgItems;
-	 * 
-	 * public HashMap<String, String> getItemsPgItems() { return itemsPgItems; }
-	 * 
-	 * 
-	 * public void setItemsPgItems(HashMap<String, String> itemsPgItems) {
-	 * this.itemsPgItems = itemsPgItems; }
-	 * 
-	 */
 	public void emptyCart() // Remove all items from the cart
 	{
 		for (WebElement el : allRemoveBtns)

@@ -15,23 +15,23 @@ public class Basepage {
 
 	WebDriver driver;
 	WebDriverWait wait;
-	
-	
-	@FindBy(css="#react-burger-menu-btn")
+
+	@FindBy(css = "#react-burger-menu-btn")
 	private WebElement burgerMenuBtn;
-	@FindBy(css="#logout_sidebar_link")
+	@FindBy(css = "#logout_sidebar_link")
 	private WebElement logOutBtn;
-	@FindBy(css=".shopping_cart_link")
-	private WebElement cartBtn; //appears in every page except for log-in page.
+	@FindBy(css = ".shopping_cart_link")
+	private WebElement cartBtn; // appears in every page except for log-in page.
 	@FindBy(css = ".shopping_cart_badge")
 	private WebElement quantityBadge;
-	
-	
+
+	public static int numOfProducts = 7;
+
 	public Basepage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	
+
 	public WebElement getBurgerMenuBtn() {
 		return burgerMenuBtn;
 	}
@@ -40,21 +40,18 @@ public class Basepage {
 		return logOutBtn;
 	}
 
-	
 	public WebElement getCartBtn() {
 		return cartBtn;
 	}
 
-	public double convertStrToDouble(String p)
-	{
+	public double convertStrToDouble(String p) {
 		String p1 = p.substring(1);
 		p1.replace("$", "");
 		double price = Double.parseDouble(p1);
 		return price;
 	}
-	
 
-	public void fillText(WebElement el,String text) {
+	public void fillText(WebElement el, String text) {
 		el.clear();
 		el.sendKeys(text);
 	}
@@ -75,29 +72,26 @@ public class Basepage {
 			e.printStackTrace();
 		}
 	}
-	
-	public void verifyElementFullyLoaded(WebElement el)
-	{
+
+	public void verifyElementFullyLoaded(WebElement el) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOf(el));
-				
+
 	}
-	
+
 	public WebElement getQuantityBadge() {
 		return quantityBadge;
 	}
 
-	public void logOut()
-	{
+	public void logOut() {
 		burgerMenuBtn.click();
 		sleep(2000);
-		logOutBtn.click();	
+		logOutBtn.click();
 	}
-	
-	public boolean isThisTheQuantityInCart(int expectedNumber)
-	{
+
+	public boolean isThisTheQuantityInCart(int expectedNumber) {
 		int actual = Integer.parseInt(getText(quantityBadge));
-		return expectedNumber == actual ;
+		return expectedNumber == actual;
 	}
-	
+
 }
