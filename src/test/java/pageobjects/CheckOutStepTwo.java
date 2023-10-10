@@ -19,9 +19,9 @@ public class CheckOutStepTwo extends MenuPage {
 	private List<WebElement> allPriceTags;	
 	@FindBy(css=".inventory_item_name") // All products' labels
 	private List<WebElement> productsLbl;
-	@FindBy(className="summary_subtotal_label") // Sum of chosen Items
+	@FindBy(css=".summary_subtotal_label") // Sum of chosen Items
 	private WebElement itemTotalPrice;
-	@FindBy(className="summary_tax_label") // Tax
+	@FindBy(css=".summary_tax_label") // Tax
 	private WebElement tax;
 	@FindBy(css =".summary_info_label.summary_total_label") // Total sum with tax
 	private WebElement totalWithTax;
