@@ -154,7 +154,7 @@ public class Invntests extends TestBase {
 	@Test(description = "Log-out method")
 	public void tc08_checkLogOutMethod() {
 		invp = new InventoryPage(driver);
-		invp.getBurgerMenuBtn().click();
+		invp.getBurgerBtn().click();
 		invp.verifyElementFullyLoaded(invp.getLogOutBtn());
 		invp.getLogOutBtn().click();
 		LoginPage loginp = new LoginPage(driver);

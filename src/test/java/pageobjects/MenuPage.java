@@ -14,6 +14,16 @@ public class MenuPage extends Basepage {
 	private WebElement logOutBtn;
 	@FindBy(css = ".shopping_cart_link")
 	private WebElement cartBtn;
+	
+	//////////////////////////////////////////////////////
+	
+
+	@FindBy(css = ".shopping_cart_badge")
+	private WebElement quantityBadge;
+	
+	public WebElement getQuantityBadge() {
+		return quantityBadge;
+	}
 
 	public WebElement getBurgerBtn() {
 		return burgerBtn;
@@ -29,5 +39,16 @@ public class MenuPage extends Basepage {
 
 	public MenuPage(WebDriver driver) {
 		super(driver);
+	}
+	
+	public void logOut() {
+		burgerBtn.click();
+		sleep(2000);
+		logOutBtn.click();
+	}
+
+	public boolean isThisTheQuantityInCart(int expectedNumber) {
+		int actual = Integer.parseInt(getText(quantityBadge));
+		return expectedNumber == actual;
 	}
 }
