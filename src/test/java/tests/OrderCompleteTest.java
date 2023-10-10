@@ -31,8 +31,7 @@ public class OrderCompleteTest extends TestBase {
 		invp = new InventoryPage(driver);
 		invp.turnAllBtnsToAdd();
 		invp.clickByIndex(0);
-		invp.clickByIndex(4); // 4th index is the last one since list of add-to-cart buttons was reduce in the
-								// line before
+		invp.clickByIndex(4); // 4th index is the last one since list of add-to-cart buttons was reduce in the line before
 		invp.getCartBtn().click();
 		cartp = new CartPage(driver);
 		cartp.getCheckOutBtn().click();
@@ -45,7 +44,6 @@ public class OrderCompleteTest extends TestBase {
 
 	@Test(description = "Verifying that when the deal is closed, the cart is empty")
 	public void tc01_isCartEmpty() {
-
 		ocp = new OrderCompletePage(driver);
 		ocp.getCartBtn().click();
 		cartp = new CartPage(driver);

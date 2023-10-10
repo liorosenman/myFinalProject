@@ -40,9 +40,7 @@ public class LoginPage extends Basepage {
 
 	public void loginMethod(String username, String password) {
 		fillText(userNameFld, username);
-//		sleep(1000);
 		fillText(passFld, password);
-//		sleep(1000);
 		loginBtn.click();
 	}
 

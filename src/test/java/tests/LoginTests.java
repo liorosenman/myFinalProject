@@ -15,8 +15,7 @@ public class LoginTests extends TestBase {
 	InventoryPage invp;
 
 	@Test(dataProvider = "allValuesOk", dataProviderClass = Data.class)
-	public void LoginOkValues(String username, String password) // Valid values for login
-	{
+	public void LoginOkValues(String username, String password) { // Valid values for login
 		loginp = new LoginPage(driver);
 		loginp.loginMethod(username, password);
 		invp = new InventoryPage(driver);
@@ -31,7 +30,6 @@ public class LoginTests extends TestBase {
 		loginp.loginMethod(username, password);
 		loginp.sleep(2000);
 		assertTrue(loginp.getErrorMsg().isDisplayed());
-
 	}
 
 }

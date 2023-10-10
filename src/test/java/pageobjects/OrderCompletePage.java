@@ -11,7 +11,6 @@ public class OrderCompletePage extends MenuPage {
 
 	public OrderCompletePage(WebDriver driver) {
 		super(driver);
-
 	}
 
 	public WebElement getOrderCompleteLbl() {

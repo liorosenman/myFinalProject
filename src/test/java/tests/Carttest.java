@@ -29,30 +29,25 @@ public class Carttest extends TestBase {
 
 	@BeforeClass
 	public void load_cartpage() {
-
 		loginp = new LoginPage(driver);
 		loginp.validLogin();
 		invp = new InventoryPage(driver);
 		invp.turnAllBtnsToAdd();
 		invp.clickByIndex(0);
-		invp.clickByIndex(4); // 4th index is the last one since list of add-to-cart buttons was reduced in
-								// the line before
+		invp.clickByIndex(4); // 4th index is the last one since list of add-to-cart buttons was reduced in the line before						
 		invp.getCartBtn().click();
 		cartp = new CartPage(driver);
 		cartp.verifyElementFullyLoaded(cartp.getYourCartTitle());
-
 	}
 
 	@Test(description = "Continue-shopping-link directs back to inventory page")
 	public void tc01_continueShoppingLink() {
-
 		cartp = new CartPage(driver);
 		cartp.sleep(2000);
 		cartp.getContinueShopLink().click();
 		invp = new InventoryPage(driver);
 		invp.verifyElementFullyLoaded(invp.getItems().get(5));
 		assertTrue(invp.getItems().get(5).isDisplayed());
-
 	}
 
 	@Test(description = "Does quantity update when removing a product from the cart")
@@ -62,12 +57,10 @@ public class Carttest extends TestBase {
 		cartp = new CartPage(driver);
 		cartp.click(cartp.getAllRemoveBtns().get(0));
 		assertTrue(cartp.isThisTheQuantityInCart(1));
-
 	}
 
 	@Test(description = "Proceed to check-out after choosing products")
-	public void tc03_clickProceedWithItems() // At least one item was chosen
-	{
+	public void tc03_clickProceedWithItems() { // At least one item was chosen
 		cartp = new CartPage(driver);
 		cartp.clickOnCheckOutBtn();
 		check1pg = new CheckOutStepOne(driver);

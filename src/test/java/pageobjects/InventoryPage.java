@@ -28,9 +28,7 @@ public class InventoryPage extends MenuPage {
 	private List<WebElement> removeItemBtns;
 	@FindBy(className = "inventory_item_price") // All price tags
 	private List<WebElement> allPriceTags;
-	@FindBy(xpath = "//button[@class=\"btn btn_secondary btn_small btn_inventory\"]/parent::div/div") // Prices of all
-																										// selected
-																										// items
+	@FindBy(xpath = "//button[@class=\"btn btn_secondary btn_small btn_inventory\"]/parent::div/div") // Prices of all selected items
 	private List<WebElement> selectedItemsPrices;
 	@FindBy(xpath = "//button[@class=\"btn btn_secondary btn_small btn_inventory\"]/ancestor::div[2]/child::div[1]/a") // Names of all selected items
 	private List<WebElement> selectedItemsNames;
@@ -45,7 +43,6 @@ public class InventoryPage extends MenuPage {
 
 	public InventoryPage(WebDriver driver) {
 		super(driver);
-
 	}
 
 	public WebElement getFirstBtn() { // Get the first button (Add to cart/Remove button)
@@ -56,9 +53,7 @@ public class InventoryPage extends MenuPage {
 		return allItemsDescription;
 	}
 
-	public HashMap<String, String> getTwoProducts() // return a hashmap of two selected items, key - name, value - price
-													// // tag
-	{
+	public HashMap<String, String> getTwoProducts(){ // return a hashmap of two selected items, key - name, value - price													// // tag
 		HashMap<String, String> h = new HashMap<String, String>();
 		h.put(getText(selectedItemsNames.get(0)), getText(selectedItemsPrices.get(0)));
 		h.put(getText(selectedItemsNames.get(1)), getText(selectedItemsPrices.get(1)));
@@ -89,14 +84,12 @@ public class InventoryPage extends MenuPage {
 		return product1Price;
 	}
 
-	public void turnAllBtnsToAdd() // Every product will have a "Add to cart" status
-	{
+	public void turnAllBtnsToAdd() { // Every product will have a "Add to cart" status
 		for (WebElement el : removeItemBtns)
 			el.click();
 	}
 
-	public void turnAllBtnsToRemove() // Every product will have a "Remove" status
-	{
+	public void turnAllBtnsToRemove() {// Every product will have a "Remove" status
 		for (WebElement el : removeItemBtns)
 			if (getText(el).equals(addBtnText))
 				click(el);
@@ -131,8 +124,7 @@ public class InventoryPage extends MenuPage {
 		return s;
 	}
 
-	public void clickByIndex(int index) // An "Add to cart" button will be clicked by its index in the addItemBtns list
-	{
+	public void clickByIndex(int index) { // An "Add to cart" button will be clicked by its index in the addItemBtns list
 		addItemBtns.get(index).click();
 	}
 

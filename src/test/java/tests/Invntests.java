@@ -29,7 +29,6 @@ public class Invntests extends TestBase {
 	public void loadTheInventoryPage() {
 		loginp = new LoginPage(driver);
 		loginp.validLogin();
-
 	}
 
 	@Test(description = "Checks if there are six items in the inventory page")
@@ -38,7 +37,6 @@ public class Invntests extends TestBase {
 		int expected_ItemsNum = invp.getItemsNum();
 		int actual_ItemsNum = invp.getItems().size();
 		assertTrue(actual_ItemsNum == expected_ItemsNum);
-
 	}
 
 	@Test(description = "Check if clicking on every add button changes it to a remove button with the right text")
@@ -47,9 +45,7 @@ public class Invntests extends TestBase {
 		invp.verifyElementFullyLoaded(invp.getItems().get(5));
 		invp.turnAllBtnsToAdd();
 		boolean conditionToAssert = true; // It will be false if the number of remove buttons didn't grow by one
-		for (WebElement el : invp.getAddItemBtns()) // checks that by every click on a add-to-cart button, list of
-													// remove buttons increases by 1
-		{
+		for (WebElement el : invp.getAddItemBtns()) { // checks that by every click on a add-to-cart button, list of													// remove buttons increases by 1
 			int sizeOfRemoveButtonListBefore = invp.getRemoveItemBtns().size();
 			el.click();
 			int sizeOfRemoveButtonListAfter = invp.getRemoveItemBtns().size();
@@ -58,7 +54,6 @@ public class Invntests extends TestBase {
 				break;
 			}
 		}
-
 		assertTrue(conditionToAssert);
 	}
 
@@ -77,7 +72,6 @@ public class Invntests extends TestBase {
 				break;
 			}
 		}
-
 		assertTrue(conditionToAssert);
 	}
 
@@ -133,12 +127,10 @@ public class Invntests extends TestBase {
 			}
 		}
 		assertTrue(isSorted);
-
 	}
 
 	@Test(description = "Check if inventory is sorted by price, from low to high")
-	public void tc07_isSortedLToH() // check if products are sorted by price from low to high
-	{
+	public void tc07_isSortedLToH() { // check if products are sorted by price from low to high
 		invp = new InventoryPage(driver);
 		boolean isSorted = true;
 		invp.getSortSlc().selectByVisibleText("Price (high to low)");
@@ -168,7 +160,6 @@ public class Invntests extends TestBase {
 		LoginPage loginp = new LoginPage(driver);
 		loginp.verifyElementFullyLoaded(loginp.getLoginBtn());
 		assert (loginp.getLoginBtn().isDisplayed());
-
 	}
 
 	@Test(description = "Check if selected items remain selected after log-out")
@@ -185,12 +176,10 @@ public class Invntests extends TestBase {
 		lp.loginMethod("standard_user", "secret_sauce");
 		invp = new InventoryPage(driver);
 		assertTrue(invp.getAddItemBtns().size() == 4);
-
 	}
 
 	@Test(description = "Compare details of chosen products, between inventory page and cart page")
 	public void tc10_selectedProductsInCart() {
-
 		driver.manage().window().maximize();
 		invp = new InventoryPage(driver);
 		invp.turnAllBtnsToAdd();
@@ -213,7 +202,6 @@ public class Invntests extends TestBase {
 
 	@Test(description = "Clicking on a specific product's title will direct to its page, with the same details:"
 			+ "Name, description, price and status")
-
 	public void tc11_ItempgInteraction() {
 		cartp = new CartPage(driver);
 		cartp.getBackToInventoryPageBtn();
@@ -227,7 +215,6 @@ public class Invntests extends TestBase {
 		invp.clickOnItemByIndex(0);
 		ItemPage itemp = new ItemPage(driver);
 		assertTrue(itemp.compareItemDetails(relevantDetails));
-
 	}
 
 }

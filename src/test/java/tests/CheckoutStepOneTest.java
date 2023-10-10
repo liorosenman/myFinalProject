@@ -27,12 +27,10 @@ public class CheckoutStepOneTest extends TestBase {
 		invp = new InventoryPage(driver);
 		invp.turnAllBtnsToAdd();
 		invp.clickByIndex(0);
-		invp.clickByIndex(4); // 4th index is the last one since list of add-to-cart buttons was reduce in the
-								// line before
+		invp.clickByIndex(4); // 4th index is the last one since list of add-to-cart buttons was reduce in the line before							
 		invp.getCartBtn().click();
 		cartp = new CartPage(driver);
 		cartp.getCheckOutBtn().click();
-
 	}
 
 	@Test(dataProvider = "ValidPersonalDetails", dataProviderClass = Data.class, description = "First name, last name and zip are valid, continue to final checkout")
@@ -49,7 +47,6 @@ public class CheckoutStepOneTest extends TestBase {
 		invp.getCartBtn().click();
 		cartp = new CartPage(driver);
 		cartp.getCheckOutBtn().click();
-
 	}
 
 	@Test(dataProvider = "AtLeastOneFieldIsEmpty", dataProviderClass = Data.class, description = "At least one of the fields is empty, cannot proceed to final checkout")
@@ -66,7 +63,6 @@ public class CheckoutStepOneTest extends TestBase {
 		check1pg.getContinueBtn().click();
 		String expectedErrMsg = "";
 		boolean isThereAnEmptyField = false;
-
 		// What is the first field that is empty
 		if (firstName.equals("")) {
 			expectedErrMsg = "Error: First Name is required";
@@ -80,10 +76,8 @@ public class CheckoutStepOneTest extends TestBase {
 			expectedErrMsg = "Error: Postal Code is required";
 			isThereAnEmptyField = true;
 		}
-
 		String actualErrMsg = check1pg.getErrorMsg().getText();
 		assertEquals(actualErrMsg, expectedErrMsg);
-
 	}
 
 	@Test(description = "Back to cart page link")

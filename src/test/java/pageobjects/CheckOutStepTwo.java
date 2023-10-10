@@ -28,7 +28,6 @@ public class CheckOutStepTwo extends MenuPage {
 
 	public CheckOutStepTwo(WebDriver driver) {
 		super(driver);
-
 	}
 
 	public WebElement getItemTotalPrice() {
@@ -43,9 +42,7 @@ public class CheckOutStepTwo extends MenuPage {
 		return totalWithTax;
 	}
 
-	public Double getActualPrice_InDouble() // Actual sum with no tax
-	{
-
+	public Double getActualPrice_InDouble() { // Actual sum with no taxF
 		String sum = getText(getItemTotalPrice());
 		sum = sum.replace("Item total: $", "");
 		Double sumInDouble = Double.parseDouble(sum);
@@ -54,7 +51,6 @@ public class CheckOutStepTwo extends MenuPage {
 	}
 
 	public Double getTax_InDouble() {
-
 		String tax = getText(getTax());
 		tax = tax.replace("Tax: $", "");
 		Double taxInDouble = Double.parseDouble(tax);
@@ -62,7 +58,6 @@ public class CheckOutStepTwo extends MenuPage {
 	}
 
 	public Double getTotalWithTax_InDouble() {
-
 		String sumWithTax = getText(getTotalWithTax());
 		sumWithTax = sumWithTax.replace("Total: $", "");
 		Double sumWithTax_InDouble = Double.parseDouble(sumWithTax);

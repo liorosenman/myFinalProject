@@ -42,7 +42,6 @@ public class CheckoutStepTwoTest extends TestBase {
 		check1pg = new CheckOutStepOne(driver);
 		check1pg.fillDtls("Avi", "Levi", "123456");
 		check1pg.getContinueBtn().click();
-
 	}
 
 	@Test(description = "Compare the items shown in checkout page to those in cart")
@@ -54,12 +53,10 @@ public class CheckoutStepTwoTest extends TestBase {
 		check2pg.getCartBtn().click();
 		cartp = new CartPage(driver);
 		assertTrue(cartp.compareItems(h));
-
 	}
 
 	@Test(description = "Verifying the expected cost of products is shown (without tax)")
 	public void tc02_SumComparison() {
-
 		cartp = new CartPage(driver);
 		cartp.getCheckOutBtn().click();
 		check1pg = new CheckOutStepOne(driver);
@@ -67,7 +64,6 @@ public class CheckoutStepTwoTest extends TestBase {
 		check1pg.getContinueBtn().click();
 		check2pg = new CheckOutStepTwo(driver);
 		assertEquals(check2pg.getActualPrice_InDouble(), check2pg.expectedSumNoTax());
-
 	}
 
 	@Test(description = "Was the tax calculated properly")

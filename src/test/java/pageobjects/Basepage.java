@@ -76,7 +76,6 @@ public class Basepage {
 	public void verifyElementFullyLoaded(WebElement el) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOf(el));
-
 	}
 
 	public WebElement getQuantityBadge() {
