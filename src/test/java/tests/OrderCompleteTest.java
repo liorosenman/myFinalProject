@@ -16,18 +16,16 @@ import pageobjects.LoginPage;
 import pageobjects.OrderCompletePage;
 
 public class OrderCompleteTest extends TestBase {
-	
-	
+
 	LoginPage loginp;
 	InventoryPage invp;
 	CartPage cartp;
 	CheckOutStepOne check1pg;
 	CheckOutStepTwo check2pg;
 	OrderCompletePage ocp;
-	
+
 	@BeforeClass
-	public void load_OrderCompletePg()
-	{
+	public void load_OrderCompletePg() {
 		loginp = new LoginPage(driver);
 		loginp.validLogin();
 		invp = new InventoryPage(driver);
@@ -43,16 +41,13 @@ public class OrderCompleteTest extends TestBase {
 		check2pg = new CheckOutStepTwo(driver);
 		check2pg.getFinishBtn().click();
 	}
-	
-	@Test (description = "Verifying that when the deal is closed, the cart is empty")
-	public void tc01_isCartEmpty()
-	{
-		
+
+	@Test(description = "Verifying that when the deal is closed, the cart is empty")
+	public void tc01_isCartEmpty() {
 		ocp = new OrderCompletePage(driver);
 		ocp.getCartBtn().click();
 		cartp = new CartPage(driver);
 		assertTrue(cartp.getProductsLbl().size() == 0);
-
 	}
 
 }

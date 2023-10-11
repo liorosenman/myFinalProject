@@ -8,20 +8,20 @@ import org.openqa.selenium.support.PageFactory;
 import utils.Utils;
 
 public class LoginPage extends Basepage {
-	
-	@FindBy(css="#user-name")
+
+	@FindBy(css = "#user-name")
 	private WebElement userNameFld;
-	@FindBy(css="#password")
+	@FindBy(css = "#password")
 	private WebElement passFld;
-	@FindBy(css="#login-button")
+	@FindBy(css = "#login-button")
 	private WebElement loginBtn;
-	@FindBy(css=".error-message-container.error > h3")	
+	@FindBy(css = ".error-message-container.error > h3")
 	private WebElement errorMsg;
-	
+
 	public LoginPage(WebDriver driver) {
-		super(driver);	
+		super(driver);
 	}
-	
+
 	public WebElement getErrorMsg() {
 		return errorMsg;
 	}
@@ -34,28 +34,20 @@ public class LoginPage extends Basepage {
 		return passFld;
 	}
 
-
 	public WebElement getLoginBtn() {
 		return loginBtn;
 	}
 
-	public void loginMethod(String username, String password)
-	{
+	public void loginMethod(String username, String password) {
 		fillText(userNameFld, username);
-//		sleep(1000);
 		fillText(passFld, password);
-//		sleep(1000);
 		loginBtn.click();
-	
 	}
-	
-	public void validLogin()
-	{
+
+	public void validLogin() {
 		fillText(userNameFld, Utils.readProperty("username"));
 		fillText(passFld, Utils.readProperty("password"));
 		loginBtn.click();
 	}
-	
-	
 
 }

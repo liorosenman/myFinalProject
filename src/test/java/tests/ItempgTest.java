@@ -21,7 +21,6 @@ public class ItempgTest extends TestBase {
 		InventoryPage invp = new InventoryPage(driver);
 		invp.turnAllBtnsToAdd();
 		invp.getItems().get(0).click();
-
 	}
 
 	@Test
@@ -41,7 +40,6 @@ public class ItempgTest extends TestBase {
 		} finally {
 			assertTrue(didPlusOneWorked);
 		}
-
 	}
 
 }

@@ -33,16 +33,13 @@ public class CartPage extends MenuPage {
 		super(driver);
 	}
 
-	public boolean compareItems(HashMap<String, String> h)
+	public boolean compareItems(HashMap<String, String> h) {
 	// Compare the chosen items between inventory page and cart page, by
 	// key - product label, value - price
-	{
-
 		HashMap<String, String> productsInTheCartPage = new HashMap<String, String>();
 		productsInTheCartPage.put(getText(productsLbl.get(0)), getText(productsPrice.get(0)));
 		productsInTheCartPage.put(getText(productsLbl.get(1)), getText(productsPrice.get(1)));
 		return (h.equals(productsInTheCartPage));
-
 	}
 
 	public List<WebElement> getProductPanel() {
@@ -73,30 +70,16 @@ public class CartPage extends MenuPage {
 		return productsPrice;
 	}
 
-	/*
-	 * private HashMap<String, String> itemsPgItems; // private HashMap<String,
-	 * String> cartPgItems;
-	 * 
-	 * public HashMap<String, String> getItemsPgItems() { return itemsPgItems; }
-	 * 
-	 * 
-	 * public void setItemsPgItems(HashMap<String, String> itemsPgItems) {
-	 * this.itemsPgItems = itemsPgItems; }
-	 * 
-	 */
-	public void emptyCart() // Remove all items from the cart
-	{
+	public void emptyCart() { // Remove all items from the cart	
 		for (WebElement el : allRemoveBtns)
 			el.click();
-
 	}
 
 	public WebElement getCheckOutBtn() {
 		return checkOutBtn;
 	}
 
-	public void clickOnCheckOutBtn() // Click on the check-out button
-	{
+	public void clickOnCheckOutBtn() { // Click on the check-out button
 		checkOutBtn.click();
 	}
 
