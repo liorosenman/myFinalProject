@@ -16,7 +16,6 @@ public class MenuPage extends Basepage {
 	private WebElement cartBtn;
 	
 	//////////////////////////////////////////////////////
-	
 
 	@FindBy(css = ".shopping_cart_badge")
 	private WebElement quantityBadge;

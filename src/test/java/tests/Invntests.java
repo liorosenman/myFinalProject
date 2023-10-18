@@ -207,6 +207,7 @@ public class Invntests extends TestBase {
 		cartp.getBackToInventoryPageBtn();
 		invp = new InventoryPage(driver);
 		invp.turnAllBtnsToAdd();
+		int x = invp.getAddItemBtns().size();
 		String itemName = invp.getItems().get(0).getText();
 		String itemDesc = invp.getAllItemsDescription().get(0).getText();
 		String itemPrice = invp.getAllPriceTags().get(0).getText();

@@ -16,8 +16,6 @@ public class Basepage {
 	WebDriver driver;
 	WebDriverWait wait;
 
-
-
 	public static int numOfProducts = 7;
 
 	public Basepage(WebDriver driver) {

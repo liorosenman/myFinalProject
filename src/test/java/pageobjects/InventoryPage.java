@@ -19,19 +19,19 @@ public class InventoryPage extends MenuPage {
 	private WebElement product1Title;
 	@FindBy(xpath = "(//div[@class='inventory_item_price'])[1]") // First item in the inventory
 	private WebElement product1Price;
-	@FindBy(xpath="//div[@class='inventory_item_name']") // All products' labels
+	@FindBy(xpath="//div[@class='inventory_item_name ']") // All products' labels
 	private List<WebElement> items;
 	@FindBy(xpath="//select[@class='product_sort_container']") // Sort options
 	private WebElement sortSlc;
-	@FindBy(xpath = "//button[@class='btn btn_primary btn_small btn_inventory']") //All add-item buttons
+	@FindBy(xpath = "//button[@class='btn btn_primary btn_small btn_inventory ']") //All add-item buttons
 	private List<WebElement> addItemBtns;
-	@FindBy(xpath = "//button[@class='btn btn_secondary btn_small btn_inventory']") //All remove-item buttons
+	@FindBy(xpath = "//button[@class='btn btn_secondary btn_small btn_inventory ']") //All remove-item buttons
 	private List<WebElement> removeItemBtns;
 	@FindBy(xpath = "//div[@class='inventory_item_price']") //All price tags
 	private List<WebElement> allPriceTags;
-	@FindBy(xpath = "//button[@class=\"btn btn_secondary btn_small btn_inventory\"]/parent::div/div") // Prices of all selected items
+	@FindBy(xpath = "//button[@class='btn btn_secondary btn_small btn_inventory ']/parent::div/div") // Prices of all selected items
 	private List<WebElement> selectedItemsPrices;
-	@FindBy(xpath = "//button[@class=\"btn btn_secondary btn_small btn_inventory\"]/ancestor::div[2]/child::div[1]/a") // Names of all selected items
+	@FindBy(xpath = "//button[@class='btn btn_secondary btn_small btn_inventory ']/ancestor::div[2]/child::div[1]/a") // Names of all selected items
 	private List<WebElement> selectedItemsNames;
 	@FindBy(xpath = "//div[@class='inventory_item_desc']")
 	private List<WebElement> allItemsDescription; // List of the descriptions of the products
@@ -54,7 +54,7 @@ public class InventoryPage extends MenuPage {
 		return allItemsDescription;
 	}
 
-	public HashMap<String, String> getTwoProducts(){ // return a hashmap of two selected items, key - name, value - price													// // tag
+	public HashMap<String, String> getTwoProducts(){ // returns a hashmap of two selected items, key - name, value - price													// // tag
 		HashMap<String, String> h = new HashMap<String, String>();
 		h.put(getText(selectedItemsNames.get(0)), getText(selectedItemsPrices.get(0)));
 		h.put(getText(selectedItemsNames.get(1)), getText(selectedItemsPrices.get(1)));

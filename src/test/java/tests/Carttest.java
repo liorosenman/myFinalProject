@@ -33,6 +33,7 @@ public class Carttest extends TestBase {
 		loginp.validLogin();
 		invp = new InventoryPage(driver);
 		invp.turnAllBtnsToAdd();
+		int x = invp.getAddItemBtns().size();
 		invp.clickByIndex(0);
 		invp.clickByIndex(4); // 4th index is the last one since list of add-to-cart buttons was reduced in the line before						
 		invp.getCartBtn().click();

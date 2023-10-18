@@ -3,13 +3,12 @@
 <suite name="Suite">
   <test  name="Test">
     <classes>
-      <class name="tests.CheckoutStepTwoTest"/>
       <class name="tests.Carttest"/>
+      <class name="tests.CheckoutStepTwoTest"/>
       <class name="tests.LoginTests"/>
       <class name="tests.Invntests"/>
       <class name="tests.CheckoutStepOneTest"/>
       <class name="tests.ItempgTest"/>
-      <class name="tests.TestBase"/>
       <class name="tests.OrderCompleteTest"/>
     </classes>
   </test> <!-- Test -->
